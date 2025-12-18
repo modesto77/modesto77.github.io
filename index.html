@@ -3,47 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio de Modesto77</title>
+    <title>Portfolio | Modesto77</title>
     <style>
-        /* Design Simple et Pro */
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.6; }
-        header { background-color: #24292e; color: white; padding: 2rem 0; text-align: center; }
-        h1 { margin: 0; font-size: 2.5rem; }
-        .subtitle { color: #58a6ff; font-weight: bold; }
-        .container { max-width: 800px; margin: auto; padding: 20px; }
-        .project-card { border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .project-title { color: #0366d6; margin-top: 0; }
-        .tags span { background: #f1f8ff; color: #0366d6; padding: 3px 8px; border-radius: 12px; font-size: 0.8rem; margin-right: 5px; }
-        .btn { display: inline-block; text-decoration: none; background: #2ea44f; color: white; padding: 10px 15px; border-radius: 6px; margin-top: 10px; font-weight: bold; }
-        .btn:hover { background: #2c974b; }
-        footer { text-align: center; padding: 20px; background: #f6f8fa; margin-top: 40px; font-size: 0.9rem; }
+        /* --- DESIGN SYSTEM CYBER --- */
+        :root {
+            --bg-color: #0a0a0a;
+            --card-bg: #161b22;
+            --text-color: #c9d1d9;
+            --accent-color: #00ff41; /* Vert Matrix/Hacker */
+            --secondary-color: #58a6ff; /* Bleu Tech */
+            --border-color: #30363d;
+        }
+
+        body {
+            font-family: 'Courier New', Courier, monospace; /* Police style Terminal */
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* --- HEADER & TERMINAL EFFECT --- */
+        header {
+            padding: 4rem 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            background: radial-gradient(circle at center, #1a202c 0%, #0a0a0a 100%);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5); /* Effet néon */
+        }
+
+        .role {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+        }
+
+        /* Animation curseur clignotant */
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            background-color: var(--accent-color);
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 0; } }
+
+        /* --- CONTAINER GLOBAL --- */
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        h2 {
+            border-left: 4px solid var(--accent-color);
+            padding-left: 15px;
+            margin-top: 40px;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* --- SECTION SKILLS (NOUVEAU) --- */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .skill-tag {
+            background-color: var(--card-bg);
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .skill-tag:hover {
+            background-color: var(--accent-color);
+            color: black;
+            cursor: default;
+            box-shadow: 0 0 15px var(--accent-color);
+        }
+
+        /* --- CARTES PROJETS --- */
+        .project-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            border-color: var(--secondary-color);
+        }
+
+        /* Petite barre déco sur la carte */
+        .project-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 2px;
+            background: linear-gradient(90deg, var(--accent-color), var(--secondary-color));
+        }
+
+        .project-title {
+            color: white;
+            font-size: 1.5rem;
+            margin-top: 0;
+        }
+
+        .tech-stack span {
+            font-size: 0.85rem;
+            background: #21262d;
+            color: #8b949e;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-right: 5px;
+        }
+
+        /* --- BOUTONS --- */
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            background: transparent;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
+            padding: 10px 20px;
+            border-radius: 4px;
+            margin-top: 20px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--accent-color);
+            color: black;
+            box-shadow: 0 0 10px rgba(0, 255, 65, 0.4);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 0.8rem;
+            color: #8b949e;
+            border-top: 1px solid var(--border-color);
+        }
+        footer a { color: var(--secondary-color); text-decoration: none; }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Modesto77</h1>
-        <p class="subtitle">Développeur Python | Android | Sécurité</p>
+        <p style="color: #8b949e; font-size: 0.9rem; margin-bottom: 5px;">root@modesto77:~# ./portfolio.sh</p>
+        <h1>Modesto77<span class="cursor">&nbsp;</span></h1>
+        <p class="role">Développeur Python | Analyste Cybersécurité | Android</p>
     </header>
 
     <div class="container">
-        <h2>🚀 Mes Projets</h2>
-
-        <div class="project-card">
-            <h3 class="project-title">Signature ECDSA & Hack PS3</h3>
-            <p>Une implémentation complète de l'algorithme de signature numérique et simulation de la vulnérabilité du nonce 'k' (Sony Hack).</p>
-            <div class="tags">
-                <span>Python</span> <span>Cryptographie</span> <span>Maths</span>
-            </div>
-            <a href="https://github.com/modesto77/Projet-ECDSA" class="btn">Voir le Code</a>
+        
+        <h2>01_Compétences_Clés</h2>
+        <div class="skills-grid">
+            <span class="skill-tag">Python & Scripting</span>
+            <span class="skill-tag">Cryptographie (ECDSA/AES)</span>
+            <span class="skill-tag">Android Development</span>
+            <span class="skill-tag">Agile / Nexus</span>
+            <span class="skill-tag">Analyse de Vulnérabilité</span>
+            <span class="skill-tag">UML & Modeling</span>
         </div>
 
-        
+        <h2>02_Projets_Sélectionnés</h2>
 
-    </div>
+        <div class="project-card">
+            <h3 class="project-title">🔐 Signature ECDSA & Simulation Hack PS3</h3>
+            <p>
+                Implémentation "from scratch" de l'algorithme de signature numérique à courbe elliptique.
+                Le projet inclut un script d'attaque démontrant la vulnérabilité critique de la réutilisation 
+                du nonce 'k', faille historique ayant compromis la PlayStation 3.
+            </p>
+            <div class="tech-stack">
+                <span>Python 3</span> <span>Mathématiques Appliquées</span> <span>Sécurité Offensive</span>
+            </div>
+            <a href="https://github.com/modesto77/ECDSA-PS3-Hack" class="btn">_VOIR_LE_CODE_SOURCE</a>
+        </div>
+
+        </div>
 
     <footer>
-        <p>© 2025 Modesto77 - Hébergé sur GitHub Pages</p>
+        <p>Session active. Initialisé en 2025.</p>
+        <p>Retrouvez-moi sur <a href="https://github.com/modesto77">GitHub</a></p>
     </footer>
 
 </body>
