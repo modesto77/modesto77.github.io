@@ -26,16 +26,35 @@
 
         /* --- HEADER & TERMINAL EFFECT --- */
         header {
-            padding: 4rem 20px;
+            padding: 4rem 20px 2rem 20px;
             text-align: center;
             border-bottom: 1px solid var(--border-color);
             background: radial-gradient(circle at center, #1a202c 0%, #0a0a0a 100%);
+        }
+
+        /* --- NOUVEAU STYLE PHOTO --- */
+        .profile-photo {
+            width: 130px;
+            height: 130px;
+            /* Rend la photo ronde */
+            border-radius: 50%;
+            /* Bordure néon verte */
+            border: 3px solid var(--accent-color);
+            /* Effet de lueur externe */
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.4);
+            object-fit: cover; /* S'assure que la photo n'est pas déformée */
+            margin-bottom: 20px;
+            /* Centrer l'image */
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         h1 {
             font-size: 2.5rem;
             color: var(--accent-color);
             margin-bottom: 10px;
+            margin-top: 0;
             text-shadow: 0 0 10px rgba(0, 255, 65, 0.5); /* Effet néon */
         }
 
@@ -69,7 +88,7 @@
             letter-spacing: 2px;
         }
 
-        /* --- SECTION SKILLS (NOUVEAU) --- */
+        /* --- SECTION SKILLS --- */
         .skills-grid {
             display: flex;
             flex-wrap: wrap;
@@ -112,7 +131,6 @@
             border-color: var(--secondary-color);
         }
 
-        /* Petite barre déco sur la carte */
         .project-card::before {
             content: "";
             position: absolute;
@@ -170,7 +188,10 @@
 <body>
 
     <header>
-        <p style="color: #8b949e; font-size: 0.9rem; margin-bottom: 5px;">root@modesto77:~# ./portfolio.sh</p>
+        <p style="color: #8b949e; font-size: 0.9rem; margin-bottom: 20px;">root@modesto77:~# ./portfolio.sh</p>
+        
+        <img src="ma-photo.jpg" alt="Photo de Modesto77" class="profile-photo">
+
         <h1>Modesto77<span class="cursor">&nbsp;</span></h1>
         <p class="role">Développeur Python | Analyste Cybersécurité | Android</p>
     </header>
@@ -199,10 +220,10 @@
             <div class="tech-stack">
                 <span>Python 3</span> <span>Mathématiques Appliquées</span> <span>Sécurité Offensive</span>
             </div>
-            <a href="https://github.com/modesto77/Projet-ECDSA" class="btn">_VOIR_LE_CODE_SOURCE</a>
+            <a href="https://github.com/modesto77/ECDSA-PS3-Hack" class="btn">_VOIR_LE_CODE_SOURCE</a>
         </div>
 
-        </div>
+    </div>
 
     <footer>
         <p>Session active. Initialisé en 2025.</p>
